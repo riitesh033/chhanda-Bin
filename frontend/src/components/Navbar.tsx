@@ -58,35 +58,53 @@ export default function Navbar({
           </button>
 
 
-          {/* Logo */}
+          {/* =================================================
+              LOGO
+          ================================================= */}
 
           <Link
             to="/"
-            className="flex items-center gap-2"
+            className="
+              group
+              flex items-center gap-3
+            "
           >
 
-            {/* Logo icon */}
+            {/* Logo Icon */}
 
             <div
               className="
-                flex h-9 w-9
+                flex h-10 w-10
                 items-center justify-center
-                rounded-lg
+                rounded-xl
                 bg-maroon
                 text-white
+                shadow-sm
+
+                transition-transform
+                duration-200
+
+                group-hover:scale-105
+
+                dark:bg-maroon
               "
             >
-              <BookOpen size={20} />
+              <BookOpen
+                size={22}
+                strokeWidth={2}
+              />
             </div>
 
 
-            {/* Logo text */}
+            {/* Logo Text */}
 
-            <div>
+            <div className="leading-tight">
 
               <h1
                 className="
-                  text-lg font-bold tracking-tight
+                  text-lg
+                  font-bold
+                  tracking-tight
                   text-ink
 
                   dark:text-white
@@ -97,8 +115,11 @@ export default function Navbar({
 
               <p
                 className="
+                  mt-0.5
                   hidden
                   text-[10px]
+                  font-medium
+                  tracking-wide
                   text-stone-500
 
                   dark:text-stone-400
@@ -127,9 +148,10 @@ export default function Navbar({
           <Link
             to="/learn"
             className="
-              text-sm font-medium
+              text-sm
+              font-medium
               text-stone-700
-              transition
+              transition-colors
 
               hover:text-maroon
 
@@ -146,9 +168,10 @@ export default function Navbar({
           <Link
             to="/encoder"
             className="
-              text-sm font-medium
+              text-sm
+              font-medium
               text-stone-700
-              transition
+              transition-colors
 
               hover:text-maroon
 
@@ -160,7 +183,7 @@ export default function Navbar({
           </Link>
 
 
-          {/* Theme toggle */}
+          {/* Theme Toggle */}
 
           <ThemeToggle />
 
@@ -170,3 +193,4 @@ export default function Navbar({
     </header>
   );
 }
+
