@@ -3,21 +3,22 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.routes import encoding, patterns, meru
 
+
 app = FastAPI(
     title="Chhanda-Bin API",
     description="Pingala's Chandaḥśāstra as Binary Encoding and Combinatorial Generation",
     version="1.0.0",
 )
 
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173",
-                   "http://localhost:5174",
-                   "https://chhanda-bin-frontend.onrender.com"],
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 app.include_router(
     encoding.router,
@@ -36,6 +37,7 @@ app.include_router(
     prefix="/api/meru",
     tags=["Meru-Prastara"],
 )
+
 
 @app.get("/")
 def root():
